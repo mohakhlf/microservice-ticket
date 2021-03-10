@@ -1,0 +1,6 @@
+services:
+  auth:
+    image: mohakhlf/ticket-microservice-auth
+    build:
+      context: auth
+      dockerfile: Dockerfile
