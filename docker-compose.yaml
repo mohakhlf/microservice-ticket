@@ -4,3 +4,8 @@ services:
     build:
       context: auth
       dockerfile: Dockerfile
+  client:
+    image: mohakhlf/ticket-microservice-client
+    build:
+      context: client
+      dockerfile: Dockerfile
