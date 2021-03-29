@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import 'dotenv/config';
 
 import { app } from './app';
 
@@ -22,7 +23,7 @@ const start = async () => {
     }
 
     app.listen(PORT, () => {
-        console.log(`auth service listening on port ${PORT}`)
+        console.log(`tickets service listening on port ${PORT}`)
         // console.log(`JWT env = ${process.env.JWT_KEY}`)
     });
 }

@@ -3,7 +3,7 @@ import 'express-async-errors';
 import  { json } from 'body-parser';
 import 'dotenv/config';
 import cookieSession from 'cookie-session';
-import { errorHandler, NotFoundError } from '@mohakhlf/udemy-common';
+import { errorHandler, NotFoundError } from '@mohakhlf/common';
 
 import { currentuserRouter } from './routes/current-user';
 import { signinRouter } from './routes/signin';

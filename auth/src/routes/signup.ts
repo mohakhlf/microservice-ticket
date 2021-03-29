@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
 import jwt from 'jsonwebtoken';
 import 'dotenv/config';
-import { validateRequest, BadRequestError } from '@mohakhlf/udemy-common';
+import { validateRequest, BadRequestError } from '@mohakhlf/common';
 
 import  { User } from '../models/user';
 

@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: tickets-mongo
+spec:
+  selector:
+    matchLabels:
+      app: tickets-mongo
+  serviceName: tickets-mongo-srv
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: tickets-mongo
+    spec:
+      containers:
+        - name: tickets-mongo
+          image: mongo
+          volumeMounts:
+            - name: mongo-tickets-disk
+              mountPath: /data/db
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-tickets-disk
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 10Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tickets-mongo-srv
+spec:
+  selector:
+    app: tickets-mongo
+  ports:
+  - port: 27017
+    targetPort: 27017

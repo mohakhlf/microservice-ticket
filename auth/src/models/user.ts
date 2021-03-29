@@ -1,6 +1,6 @@
 import mongoose,  {Document, Model} from 'mongoose';
 import { Password } from '../services/password';
-/*
+/**
 * Interface that describes the properties
 * that are required to create a new User
 */
@@ -10,20 +10,20 @@ interface UserAttrs {
   }
 
 /**
-* Interface that describes the properties
-* that User Model has
-*/
-interface UserModel extends Model<UserDoc> {
-    build(attrs: UserAttrs): UserDoc;
-  }
-
-/**
  * Interface that describes the properties
  * that User Document has
  */
 interface UserDoc extends Document {
     email: string;
     password: string;
+}
+
+/**
+* Interface that describes the properties
+* that User Model has
+*/
+interface UserModel extends Model<UserDoc> {
+  build(attrs: UserAttrs): UserDoc;
 }
 
 const userSchema = new mongoose.Schema({

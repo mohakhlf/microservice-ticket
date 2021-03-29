@@ -9,3 +9,8 @@ services:
     build:
       context: client
       dockerfile: Dockerfile
+  tickets:
+    image: mohakhlf/ticket-microservice-tickets
+    build:
+      context: tickets
+      dockerfile: Dockerfile
