@@ -16,7 +16,7 @@ interface TicketAttrs {
  */
  interface TicketDoc extends Document {
   title: string;
-  price: string;
+  price: number;
   userId: string
 }
 
