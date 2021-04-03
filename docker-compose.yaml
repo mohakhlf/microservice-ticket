@@ -14,3 +14,8 @@ services:
     build:
       context: tickets
       dockerfile: Dockerfile
+  orders:
+    image: mohakhlf/ticket-microservice-orders
+    build:
+      context: orders
+      dockerfile: Dockerfile
