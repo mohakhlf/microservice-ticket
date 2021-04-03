@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: orders-mongo
+spec:
+  selector:
+    matchLabels:
+      app: orders-mongo
+  serviceName: orders-mongo-srv
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: orders-mongo
+    spec:
+      containers:
+        - name: orders-mongo
+          image: mongo
+          volumeMounts:
+            - name: mongo-orders-disk
+              mountPath: /data/db
+  volumeClaimTemplates:
+    - metadata:
+        name: mongo-orders-disk
+      spec:
+        accessModes: ["ReadWriteOnce"]
+        resources:
+          requests:
+            storage: 10Gi
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: orders-mongo-srv
+spec:
+  selector:
+    app: orders-mongo
+  ports:
+  - port: 27017
+    targetPort: 27017
