@@ -27,7 +27,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
-    "express-validator": "^6.10.0",
+    "express-validator": "^7.0.1",
     "jsonwebtoken": "^9.0.2",
     "mongoose": "^5.11.20",
     "ts-node": "^9.1.1",
